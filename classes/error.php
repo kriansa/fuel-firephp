@@ -36,6 +36,14 @@ class Error
 	public static $count = 0;
 
 	public static $non_fatal_cache = array();
+	
+	protected static $fb = null;
+	
+	public static function _init()
+	{
+		require_once PKGPATH.'firephp'.DS.'vendor'.DS.'FirePHP.class.php';
+		static::$fb = \FirePHP::getInstance(true);
+	}
 
 	/**
 	 * Native PHP shutdown handler
@@ -144,7 +152,7 @@ class Error
 
 		try
 		{
-			\FirePHP::getInstance(true)->error($e);
+			static::$fb->error($e);
 		}
 		catch (\Exception $e)
 		{
@@ -181,7 +189,7 @@ class Error
 			return;
 		}
 		
-		\FirePHP::getInstance(true)->warn($msg, 'Notice - in '.\Fuel::clean_path($trace['file']).' on line '.$trace['line']);
+		static::$fb->warn($msg, 'Notice - in '.\Fuel::clean_path($trace['file']).' on line '.$trace['line']);
 	}
 
 	/**

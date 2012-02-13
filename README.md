@@ -16,7 +16,7 @@ Works with Fuel 1.1
 
 ## Usage
 
-This package simply replaces the original error and exception handler.
+This package simply replaces the original error and exception handler and the Debug class. It also adds a FirePHP handler to log things
 
 If you want to log something, just do the following:
 
@@ -24,6 +24,8 @@ If you want to log something, just do the following:
 Debug::dump('anything');
 // Or a trace
 Debug::backtrace();
+// Or a FirePHP event
+Debug::firephp()->info('this is a test');
 ```
 
 ## License

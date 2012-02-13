@@ -68,6 +68,18 @@ class Debug
 		}
 		static::$fb->groupEnd();
 	}
+	
+	/**
+	 * Return the FirePHP handle to display messages
+	 *
+	 * @static
+	 * @access	public
+	 * @return	FirePHP object
+	 */
+	public static function firephp()
+	{
+		return static::$fb;
+	}
 
 	/**
 	 * Quick and nice way to output a mixed variable to the browser
