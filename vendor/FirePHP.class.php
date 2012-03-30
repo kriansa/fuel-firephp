@@ -509,12 +509,6 @@ class FirePHP {
      */
     public function fb($object)
     {
-        if ($this instanceof FirePHP_Insight && method_exists($this, '_logUpgradeClientMessage')) {
-            if (!FirePHP_Insight::$upgradeClientMessageLogged) { // avoid infinite recursion as _logUpgradeClientMessage() logs a message
-                $this->_logUpgradeClientMessage();
-            }
-        }
-
         if (!$this->getEnabled()) {
             return false;
         }
@@ -587,7 +581,7 @@ class FirePHP {
             $type = self::EXCEPTION;
           
         } else if ($type == self::TRACE) {
-            $trace = $object; //debug_backtrace();
+            $trace = $object ? $object : debug_backtrace();
             if (!$trace) return false;
 			$i = 0;
 			$object = array(

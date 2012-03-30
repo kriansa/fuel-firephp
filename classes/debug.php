@@ -105,7 +105,7 @@ class Debug
 
 		foreach($arguments as $argument)
 		{
-			$table[] = array('Debug #'.++$i.' of '.$total_arguments, static::get_type($argument), $argument);
+			$table[] = array('Debug #'.++$i.'/'.$total_arguments, static::get_type($argument), $argument);
 		}
 
 		static::$fb->table($callee['file'].' @ line: '.$callee['line'], $table);
