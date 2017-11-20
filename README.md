@@ -1,4 +1,4 @@
-# Fuel FirePHP package
+# Fuel FirePHP package [![Maintenance](https://img.shields.io/maintenance/no/2012.svg)]()
 
 This is a simple FirePHP package to allow a better AJAX development with debugging.
 
